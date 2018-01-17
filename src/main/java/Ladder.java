@@ -19,46 +19,41 @@ class Ladder {
 
     public String peoplePrint(int people){
         String result = "";
-        for(int i = 0; i < (2 * people - 1); i ++){
-            checkOdd(i, result);
+        for(int i = 0; i < (2 * people) - 1; i++){
+            result = checkOdd(i, result);
         }
         return result;
     }
 
-    public String add(String result){
+    public String add(){
         Random rnd = new Random();
         if (rnd.nextInt(10) >= 6){
-            result += "ㅡ";
+            return "ㅡ";
         } else {
-            result += " ";
+            return " ";
         }
-        return result;
-        //logger.info("{}",result);
     }
 
     public String checkOdd(int i, String result){
         if (i % 2 == 0) {
             result += "ㅣ";
         } else {
-            add(result);
+            result += add();
         }
-        logger.info("{}",result);
         return result;
     }
 
-
-
     public void process(int people, int height){
         for (int i = 0; i < height; i++) {
-            results.add(checkOdd(people, peoplePrint(people)));
+            results.add(peoplePrint(people));
         }
     }
 
-    public void heightPrint(){
-        for (String result:results) {
-            System.out.println(result);
+        public void heightPrint(){
+            for (String result:results) {
+                System.out.println(result);
+            }
         }
-    }
 
     public static void main(String [] args){
         //input영역
@@ -72,6 +67,6 @@ class Ladder {
         int ladderHeight = ladder.ladderInput(ladderInput);
         //output영역
         ladder.process(people, ladderHeight);
-        //ladder.heightPrint();
+        ladder.heightPrint();
     }
 }
