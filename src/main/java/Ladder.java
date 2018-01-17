@@ -9,11 +9,11 @@ class Ladder {
     private static final Logger logger = LoggerFactory.getLogger(Ladder.class);
     ArrayList<String> results = new ArrayList<String>();
 
-    public int peopleInput(String peopleInput){
+    public static int peopleInput(String peopleInput){
         return Integer.parseInt(peopleInput);
     }
 
-    public int ladderInput(String ladderInput){
+    public static int ladderInput(String ladderInput){
         return Integer.parseInt(ladderInput);
     }
 
@@ -25,20 +25,21 @@ class Ladder {
         return result;
     }
 
-    public String add(){
-        Random rnd = new Random();
-        if (rnd.nextInt(10) >= 6){
-            return "ㅡ";
+    public String add(int randomNumber){
+        if (randomNumber >= 6){
+            return "-";
         } else {
             return " ";
         }
     }
 
     public String checkOdd(int i, String result){
+        Random rnd = new Random();
+        int randomNumber = rnd.nextInt(10);
         if (i % 2 == 0) {
-            result += "ㅣ";
+            result += "|";
         } else {
-            result += add();
+            result += add(randomNumber);
         }
         return result;
     }
@@ -49,13 +50,14 @@ class Ladder {
         }
     }
 
-        public void heightPrint(){
-            for (String result:results) {
-                System.out.println(result);
-            }
+    public void heightPrint(){
+        for (String result:results) {
+            System.out.println(result);
         }
+    }
 
     public static void main(String [] args){
+
         //input영역
         Scanner scanner = new Scanner(System.in);
         Ladder ladder = new Ladder();
@@ -63,8 +65,9 @@ class Ladder {
         String peopleInput = scanner.nextLine();
         logger.info("최대 사다리 높이는 몇 개인가요?");
         String ladderInput = scanner.nextLine();
-        int people = ladder.peopleInput(peopleInput);
-        int ladderHeight = ladder.ladderInput(ladderInput);
+        int people = peopleInput(peopleInput);
+        int ladderHeight = ladderInput(ladderInput);
+
         //output영역
         ladder.process(people, ladderHeight);
         ladder.heightPrint();
