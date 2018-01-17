@@ -7,4 +7,5 @@ public class LadderInput {
     private static final Logger logger = LoggerFactory.getLogger(LadderInput.class);
 
 
+
 }

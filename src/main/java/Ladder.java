@@ -57,10 +57,9 @@ class Ladder {
     }
 
     public static void main(String [] args){
-
-        //input영역
         Scanner scanner = new Scanner(System.in);
         Ladder ladder = new Ladder();
+        LadderInput input = new LadderInput();
         logger.info("참여할 사람은 몇 명 인가요?");
         String peopleInput = scanner.nextLine();
         logger.info("최대 사다리 높이는 몇 개인가요?");
