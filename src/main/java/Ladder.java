@@ -20,18 +20,20 @@ class Ladder {
     public String add(int randomNumber){
         if (randomNumber >= 6){
             return "-";
+        } else {
+            return " ";
         }
-        return " ";
-
     }
 
     public String checkOdd(int i, String result){
         Random rnd = new Random();
         int randomNumber = rnd.nextInt(10);
         if (i % 2 == 0) {
-            return result + "|";
+            result += "|";
+        } else {
+            result += add(randomNumber);
         }
-        return result + add(randomNumber);
+        return result;
     }
 
     public void process(int people, int height){
