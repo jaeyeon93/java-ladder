@@ -18,9 +18,8 @@ class Ladder {
     }
 
     public String add(int randomNumber){
-        if (randomNumber >= 6){
+        if (randomNumber >= 6)
             return "-";
-        }
         return " ";
 
     }
