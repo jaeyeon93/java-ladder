@@ -3,11 +3,11 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
 class Ladder {
     private static final Logger logger = LoggerFactory.getLogger(Ladder.class);
     ArrayList<String> results = new ArrayList<String>();
+    ArrayList<Line> lines = new ArrayList<Line>();
 
     public String peoplePrint(int people){
         String result = "";
@@ -17,25 +17,28 @@ class Ladder {
         return result;
     }
 
-    public String add(int randomNumber){
-        if (randomNumber >= 6)
-            return "-----";
-        return "     ";
-
-    }
-
     public String checkOdd(int i, String result){
-        Random rnd = new Random();
-        int randomNumber = rnd.nextInt(10);
+        logger.debug("i, result : {}, {}", i, result);
+        logger.debug("lines : {}", lines.size());
         if (i % 2 == 0)
             return result + "|";
-        return result + add(randomNumber);
+        return result + lines.get(i).changeBoolean();
+        //return result + returnAdd(i);
+    }
+
+    public Boolean returnAdd(int i){
+        Random rnd = new Random();
+        int randomNumber = rnd.nextInt(10);
+        if (randomNumber >= 6)
+            return true;
+        return false;
     }
 
     public void process(int people, int height){
         for (int i = 0; i < height; i++) {
-            results.add(peoplePrint(people));
+            lines.add(new Line(people));
         }
+        peoplePrint(people);
     }
 
     public void heightPrint(){

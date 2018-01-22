@@ -28,15 +28,15 @@ public class LadderTest {
         assertEquals(5, height);
     }
 
-    @Test
-    public void addLadder() {
-        String add = ladder.add(6);
-        assertEquals("-", add);
-    }
-
-    @Test
-    public void notAddLadder() {
-        String notAdd = ladder.add(4);
-        assertEquals(" ", notAdd);
-    }
+//    @Test
+//    public void addLadder() {
+//        String add = ladder.add(6);
+//        assertEquals("-", add);
+//    }
+//
+//    @Test
+//    public void notAddLadder() {
+//        String notAdd = ladder.add(4);
+//        assertEquals(" ", notAdd);
+//    }
 }
