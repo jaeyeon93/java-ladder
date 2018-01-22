@@ -19,17 +19,16 @@ class Ladder {
 
     public String add(int randomNumber){
         if (randomNumber >= 6)
-            return "-";
-        return " ";
+            return "-----";
+        return "     ";
 
     }
 
     public String checkOdd(int i, String result){
         Random rnd = new Random();
         int randomNumber = rnd.nextInt(10);
-        if (i % 2 == 0) {
+        if (i % 2 == 0)
             return result + "|";
-        }
         return result + add(randomNumber);
     }
 
