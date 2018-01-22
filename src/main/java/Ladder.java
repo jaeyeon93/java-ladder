@@ -3,19 +3,20 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
 class Ladder {
     private static final Logger logger = LoggerFactory.getLogger(Ladder.class);
     ArrayList<String> results = new ArrayList<String>();
+    ArrayList<Line> lines = new ArrayList<Line>();
 
     public String peoplePrint(int people){
+        logger.debug("lines : {}", lines.size());
         Random rnd = new Random();
         String result = "";
         for(int i = 0; i < people; i++){
             int randomNumber = rnd.nextInt(10);
             result = printBar(result);
-            result += add(randomNumber);
+            result += returnAdd(randomNumber);
         }
         return result;
     }
@@ -24,16 +25,17 @@ class Ladder {
         return result + "|";
     }
 
-    public String add(int randomNumber){
+    public boolean returnAdd(int randomNumber) {
         if (randomNumber >= 6)
-            return "-----";
-        return "     ";
-
+            return true;
+        return false;
     }
+
 
     public void process(int people, int height){
         for (int i = 0; i < height; i++) {
             results.add(peoplePrint(people));
+            lines.add(new Line());
         }
     }
 

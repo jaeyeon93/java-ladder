@@ -1,3 +1,6 @@
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Result {
     public static void main(String [] args){
         Ladder ladder = new Ladder();
@@ -10,6 +13,7 @@ public class Result {
 
         int people = input.peopleInput(peopleInput);
         int ladderHeight = input.ladderInput(ladderInput);
+
         ladder.process(people, ladderHeight);
         ladder.heightPrint();
     }

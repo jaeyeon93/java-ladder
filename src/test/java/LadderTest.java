@@ -30,13 +30,13 @@ public class LadderTest {
 
     @Test
     public void addLadder() {
-        String add = ladder.add(6);
-        assertEquals("-", add);
+        Boolean add = ladder.returnAdd(6);
+        assertEquals(true, add);
     }
 
     @Test
     public void notAddLadder() {
-        String notAdd = ladder.add(4);
-        assertEquals(" ", notAdd);
+        Boolean notAdd = ladder.returnAdd(4);
+        assertEquals(false, notAdd);
     }
 }
