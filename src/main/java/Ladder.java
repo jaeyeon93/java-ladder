@@ -11,17 +11,10 @@ class Ladder {
 
     public String peoplePrint(int people){
         String result = "";
-        for(int i = 0; i < (2 * people) - 1; i++){
+        for(int i = 0; i < people; i++){
             result = checkOdd(i, result);
         }
         return result;
-    }
-
-    public String add(int randomNumber){
-        if (randomNumber >= 6)
-            return "-";
-        return " ";
-
     }
 
     public String checkOdd(int i, String result){
@@ -33,10 +26,20 @@ class Ladder {
         return result + add(randomNumber);
     }
 
+    public String add(int randomNumber){
+        if (randomNumber >= 6)
+            return "-";
+        return " ";
+
+    }
+
     public void process(int people, int height){
         for (int i = 0; i < height; i++) {
             results.add(peoplePrint(people));
         }
+        logger.info("people is {}", people);
+        logger.info("height is {}", height);
+
     }
 
     public void heightPrint(){
