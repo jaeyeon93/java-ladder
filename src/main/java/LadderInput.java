@@ -1,5 +1,7 @@
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.List;
@@ -7,10 +9,9 @@ import java.util.List;
 
 public class LadderInput {
     private static final Logger logger = LoggerFactory.getLogger(LadderInput.class);
-
-    public static int peopleInput(String peopleInput){
+    public static List<String> peopleInput(String peopleInput){
         List<String> names = Arrays.asList(peopleInput.split(","));
-        return names.size();
+        return names;
     }
 
     public static int ladderInput(String ladderInput){

@@ -7,10 +7,9 @@ import java.util.Random;
 class Ladder {
     private static final Logger logger = LoggerFactory.getLogger(Ladder.class);
     ArrayList<String> results = new ArrayList<String>();
+    ArrayList<String> result2 = new ArrayList<String>();
     ArrayList<Line> lines = new ArrayList<Line>();
     int currentIndex = 0;
-
-
 
     public String peoplePrint(int people){
         logger.debug("lines : {}", lines.size());
@@ -22,9 +21,19 @@ class Ladder {
             result += returnAdd(randomNumber);
             lines.get(currentIndex).addTrueFalse(returnAdd(randomNumber));
         }
-        lines.get(currentIndex).printResult();
-        lines.get(currentIndex).afterChange();
         return result;
+    }
+
+    public String method2(int people) {
+        String emp = "     ";
+        for (int i = 0; i < people; i++){
+            emp = printBar(emp);
+            if (i == people - 1){
+                return emp;
+            }
+            emp += lines.get(currentIndex).result2(i);
+        }
+        return emp;
     }
 
     public String printBar(String result){
@@ -32,7 +41,7 @@ class Ladder {
     }
 
     public boolean returnAdd(int randomNumber) {
-        if (randomNumber >= 6)
+        if (randomNumber >= 4)
             return true;
         return false;
     }
@@ -42,12 +51,13 @@ class Ladder {
         for (int i = 0; i < height; i++) {
             lines.add(new Line());
             results.add(peoplePrint(people));
+            result2.add(method2(people));
             currentIndex++;
         }
     }
 
     public void heightPrint(){
-        for (String result:results) {
+        for (String result:result2) {
             System.out.println(result);
         }
     }

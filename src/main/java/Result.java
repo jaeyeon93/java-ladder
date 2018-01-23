@@ -1,6 +1,8 @@
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
+
 public class Result {
     public static void main(String [] args){
         Ladder ladder = new Ladder();
@@ -10,10 +12,14 @@ public class Result {
         input.height();
         String ladderInput = input.scannerInput();
 
-        int people = input.peopleInput(peopleInput);
+        List<String> names = input.peopleInput(peopleInput);
         int ladderHeight = input.ladderInput(ladderInput);
 
-        ladder.process(people, ladderHeight);
+        ladder.process(names.size(), ladderHeight);
+        for (String name : names) {
+            System.out.print(String.format("%5s", name));
+        }
+        System.out.println();
         ladder.heightPrint();
     }
 }

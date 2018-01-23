@@ -29,6 +29,13 @@ public class Line {
         }
     }
 
+    public String result2(int i){
+        checkNext();
+        if (points.get(i).booleanValue() == true)
+            return "-----";
+        return "     ";
+    }
+
     public void afterChange(){
         checkNext();
         for (int i = 0; i < points.size(); i++){
