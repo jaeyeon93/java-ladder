@@ -8,6 +8,9 @@ class Ladder {
     private static final Logger logger = LoggerFactory.getLogger(Ladder.class);
     ArrayList<String> results = new ArrayList<String>();
     ArrayList<Line> lines = new ArrayList<Line>();
+    int currentIndex = 0;
+
+
 
     public String peoplePrint(int people){
         logger.debug("lines : {}", lines.size());
@@ -17,7 +20,10 @@ class Ladder {
             int randomNumber = rnd.nextInt(10);
             result = printBar(result);
             result += returnAdd(randomNumber);
+            lines.get(currentIndex).addTrueFalse(returnAdd(randomNumber));
         }
+        lines.get(currentIndex).printResult();
+        lines.get(currentIndex).afterChange();
         return result;
     }
 
@@ -31,11 +37,12 @@ class Ladder {
         return false;
     }
 
-
     public void process(int people, int height){
+        // 초기화부분
         for (int i = 0; i < height; i++) {
-            results.add(peoplePrint(people));
             lines.add(new Line());
+            results.add(peoplePrint(people));
+            currentIndex++;
         }
     }
 
