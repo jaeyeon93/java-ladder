@@ -15,19 +15,7 @@ public class LadderTest {
         ladder = new Ladder();
         LadderInput input = new LadderInput();
     }
-
-//    @Test
-//    public void peopleInput() {
-//        int people = input.peopleInput("3");
-//        assertEquals(3, people);
-//    }
-//
-//    @Test
-//    public void ladderInput() {
-//        int height = input.peopleInput("5");
-//        assertEquals(5, height);
-//    }
-
+    
     @Test
     public void addLadder() {
         Boolean add = ladder.returnAdd(6);
