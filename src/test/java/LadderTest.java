@@ -26,4 +26,5 @@ public class LadderTest {
         Boolean notAdd = ladder.returnAdd(4);
         assertEquals(false, notAdd);
     }
+
 }

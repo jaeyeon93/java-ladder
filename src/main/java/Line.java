@@ -9,9 +9,12 @@ public class Line {
 
     public void checkNext() {
         for (int i = 0; i < points.size() - 1; i++) {
-            if (points.get(i).booleanValue() == true) {
-                points.set(i + 1, false);
-            }
+            setValue(i);
+        }
+    }
+    public void setValue(int i){
+        if (points.get(i).booleanValue() == true){
+            points.set(i +1, false);
         }
     }
 

@@ -10,8 +10,7 @@ class Ladder {
     ArrayList<Line> lines = new ArrayList<Line>();
     int currentIndex = 0;
 
-    public void insertTrueFalse(int people){
-        //logger.debug("lines : {}", lines.size());
+    public void createLines(int people){
         Random rnd = new Random();
         for(int i = 0; i < people; i++){
             int randomNumber = rnd.nextInt(10);
@@ -24,7 +23,7 @@ class Ladder {
     }
 
     public boolean returnAdd(int randomNumber) {
-        if (randomNumber >= 4)
+        if (randomNumber >= 6)
             return true;
         return false;
     }
@@ -32,7 +31,7 @@ class Ladder {
     public void resetPart(int people, int height){
         for (int i = 0; i < height; i++) {
             lines.add(new Line());
-            insertTrueFalse(people);
+            createLines(people);
             currentIndex++;
         }
     }
@@ -51,8 +50,6 @@ class Ladder {
     }
 
     public void check(int people, int i, int height){
-        if (i == people -1)
-            System.out.print("");
         System.out.print(lines.get(height).result(i, people));
     }
 
@@ -63,3 +60,4 @@ class Ladder {
         }
     }
 }
+
