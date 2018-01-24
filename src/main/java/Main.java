@@ -13,7 +13,7 @@ public class Main {
         ladder.resetPart(names.size(), ladderHeight);
         ladder.printNames(names);
         System.out.println();
-        ladder.printTF(names.size(), ladderHeight);
+        ladder.printHeight(names.size(), ladderHeight);
         //ladder.printLayer();
     }
 }

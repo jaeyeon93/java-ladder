@@ -8,7 +8,6 @@ import java.util.Random;
 class Ladder {
     private static final Logger logger = LoggerFactory.getLogger(Ladder.class);
     ArrayList<String> results = new ArrayList<String>();
-    ArrayList<String> emps = new ArrayList<String>();
     ArrayList<Line> lines = new ArrayList<Line>();
     int currentIndex = 0;
 
@@ -19,27 +18,11 @@ class Ladder {
         String result = "";
         for(int i = 0; i < people; i++){
             int randomNumber = rnd.nextInt(10);
-            //result = printBar(result);
             result += returnAdd(randomNumber);
             lines.get(currentIndex).addTrueFalse(returnAdd(randomNumber));
         }
         return result;
     }
-
-
-// Before
-//    public String finalResult(int people) {
-//        String emp = "     ";
-//        for (int i = 0; i < people; i++){
-//            //emp = printBar(emp);
-//            if (i == people - 1){
-//                return emp;
-//            }
-//            emp += lines.get(currentIndex).result2(i);
-//        }
-//        return emp;
-//    }
-
 
     public String finalResult(int people) {
         String emp = "     ";
@@ -53,11 +36,7 @@ class Ladder {
         return emp;
     }
 
-    public String printBar(String result){
-        return result + "|";
-    }
-
-    public void printBar2(){
+    public void printBar(){
         System.out.print("|");
     }
 
@@ -71,7 +50,6 @@ class Ladder {
         for (int i = 0; i < height; i++) {
             lines.add(new Line());
             results.add(peoplePrint(people));
-//            emps.add(finalResult(people));
             currentIndex++;
         }
     }
@@ -82,20 +60,17 @@ class Ladder {
         }
     }
 
-    public void printTF(int people, int height){
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < people; j++){
-                printBar2();
-                System.out.print(lines.get(i).printTrueFalse(j));
-            }
+    public void printHeight(int people, int height){
+        for (int j = 0; j < height; j++) {
+            printPeople(people, j);
             System.out.println();
         }
     }
 
-
-    public void printLayer(){
-        for (String result: emps) {
-            System.out.println(result);
+    public void printPeople(int people, int j){
+        for (int i = 0; i < people; i++){
+            printBar();
+            System.out.print(lines.get(j).result2(i));
         }
     }
 }
