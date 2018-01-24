@@ -12,16 +12,24 @@ class Ladder {
     int currentIndex = 0;
 
 
-    public String peoplePrint(int people){
+//    public String peoplePrint(int people){
+//        logger.debug("lines : {}", lines.size());
+//        Random rnd = new Random();
+//        String result = "";
+//        for(int i = 0; i < people; i++){
+//            int randomNumber = rnd.nextInt(10);
+//            result += returnAdd(randomNumber);
+//            lines.get(currentIndex).addTrueFalse(returnAdd(randomNumber));
+//        }
+//        return result;
+//    }
+    public void insertTrueFalse(int people){
         logger.debug("lines : {}", lines.size());
         Random rnd = new Random();
-        String result = "";
         for(int i = 0; i < people; i++){
             int randomNumber = rnd.nextInt(10);
-            result += returnAdd(randomNumber);
             lines.get(currentIndex).addTrueFalse(returnAdd(randomNumber));
         }
-        return result;
     }
 
     public String finalResult(int people) {
@@ -49,7 +57,8 @@ class Ladder {
     public void resetPart(int people, int height){
         for (int i = 0; i < height; i++) {
             lines.add(new Line());
-            results.add(peoplePrint(people));
+            //results.add(peoplePrint(people));
+            insertTrueFalse(people);
             currentIndex++;
         }
     }

@@ -2,6 +2,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Line {
     private static final Logger logger = LoggerFactory.getLogger(Line.class);
@@ -33,10 +34,4 @@ public class Line {
         return "false";
     }
 
-    public void afterChange(){
-        checkNext();
-        for (int i = 0; i < points.size(); i++){
-            logger.info("after value of points {} is {}", i, points.get(i).booleanValue());
-        }
-    }
 }
