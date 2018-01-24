@@ -12,11 +12,7 @@ public class Main {
         int ladderHeight = LadderInput.ladderInput(ladderInput);
 
         ArrayList<Line> lines = ladder.createLines(names.size(), ladderHeight);
+        ResultView.printNames(names);
         ResultView.printLadder(lines);
-
-//        ladder.resetPart(names.size(), ladderHeight);
-//        ladder.printNames(names);
-//        System.out.println();
-//        ladder.printHeight(names.size(), ladderHeight);
     }
 }

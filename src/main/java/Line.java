@@ -36,10 +36,10 @@ public class Line {
         return "false";
     }
 
-    @Override
-    public String toString() {
-        return "Line{" +
-                "points=" + points +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Line{" +
+//                "points=" + points +
+//                '}';
+//    }
 }

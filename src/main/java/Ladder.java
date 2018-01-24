@@ -1,22 +1,13 @@
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 class Ladder {
-    private static final Logger logger = LoggerFactory.getLogger(Ladder.class);
-    int currentIndex = 0;
-
     public ArrayList<Line> createLines(int people, int height){
         ArrayList<Line> lines = new ArrayList<Line>();
         Random rnd = new Random();
-
         for(int j =0; j < height; j++){
             createLine(people, lines, rnd);
         }
-
         return lines;
     }
 
@@ -29,21 +20,11 @@ class Ladder {
         lines.add(line);
     }
 
-
-
     private boolean returnAdd(int randomNumber) {
         if (randomNumber >= 6)
             return true;
         return false;
     }
-
-//    public void resetPart(int people, int height){
-//        for (int i = 0; i < height; i++) {
-//            //lines.add(new Line());
-//            createLines(people);
-//            currentIndex++;
-//        }
-//    }
 
 }
 
