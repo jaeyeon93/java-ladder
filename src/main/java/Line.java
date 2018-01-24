@@ -26,6 +26,13 @@ public class Line {
         return "     ";
     }
 
+    public String printTrueFalse(int i){
+        checkNext();
+        if (points.get(i).booleanValue() == true)
+            return "true";
+        return "false";
+    }
+
     public void afterChange(){
         checkNext();
         for (int i = 0; i < points.size(); i++){
