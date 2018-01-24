@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 public class LadderTest {
     private static final Logger logger = LoggerFactory.getLogger(LadderTest.class);
     Ladder ladder;
-    // class area
     LadderInput input;
 
     @Before

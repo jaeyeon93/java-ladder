@@ -7,41 +7,16 @@ import java.util.Random;
 
 class Ladder {
     private static final Logger logger = LoggerFactory.getLogger(Ladder.class);
-    ArrayList<String> results = new ArrayList<String>();
     ArrayList<Line> lines = new ArrayList<Line>();
     int currentIndex = 0;
 
-
-//    public String peoplePrint(int people){
-//        logger.debug("lines : {}", lines.size());
-//        Random rnd = new Random();
-//        String result = "";
-//        for(int i = 0; i < people; i++){
-//            int randomNumber = rnd.nextInt(10);
-//            result += returnAdd(randomNumber);
-//            lines.get(currentIndex).addTrueFalse(returnAdd(randomNumber));
-//        }
-//        return result;
-//    }
     public void insertTrueFalse(int people){
-        logger.debug("lines : {}", lines.size());
+        //logger.debug("lines : {}", lines.size());
         Random rnd = new Random();
         for(int i = 0; i < people; i++){
             int randomNumber = rnd.nextInt(10);
             lines.get(currentIndex).addTrueFalse(returnAdd(randomNumber));
         }
-    }
-
-    public String finalResult(int people) {
-        String emp = "     ";
-        for (int i = 0; i < people; i++){
-            //emp = printBar(emp);
-            if (i == people - 1){
-                return emp;
-            }
-            emp += lines.get(currentIndex).printTrueFalse(i);
-        }
-        return emp;
     }
 
     public void printBar(){
@@ -57,7 +32,6 @@ class Ladder {
     public void resetPart(int people, int height){
         for (int i = 0; i < height; i++) {
             lines.add(new Line());
-            //results.add(peoplePrint(people));
             insertTrueFalse(people);
             currentIndex++;
         }
@@ -76,10 +50,16 @@ class Ladder {
         }
     }
 
-    public void printPeople(int people, int j){
+    public void check(int people, int i, int height){
+        if (i == people -1)
+            System.out.print("");
+        System.out.print(lines.get(height).result(i, people));
+    }
+
+    public void printPeople(int people, int height){
         for (int i = 0; i < people; i++){
             printBar();
-            System.out.print(lines.get(j).result2(i));
+            check(people, i, height);
         }
     }
 }

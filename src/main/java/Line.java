@@ -1,11 +1,6 @@
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Line {
-    private static final Logger logger = LoggerFactory.getLogger(Line.class);
     private ArrayList<Boolean> points = new ArrayList<Boolean>();
 
     public void addTrueFalse(Boolean bool) {
@@ -20,9 +15,9 @@ public class Line {
         }
     }
 
-    public String result2(int i){
+    public String result(int i, int people){
         checkNext();
-        if (points.get(i).booleanValue() == true)
+        if (points.get(i).booleanValue() == true && i != people -1)
             return "-----";
         return "     ";
     }

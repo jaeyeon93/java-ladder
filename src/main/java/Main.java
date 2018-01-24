@@ -14,6 +14,5 @@ public class Main {
         ladder.printNames(names);
         System.out.println();
         ladder.printHeight(names.size(), ladderHeight);
-        //ladder.printLayer();
     }
 }
