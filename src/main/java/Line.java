@@ -13,14 +13,18 @@ public class Line {
         }
     }
     public void setValue(int i){
-        if (points.get(i).booleanValue() == true){
-            points.set(i +1, false);
+        if (points.get(i).booleanValue() == true && i != points.size() -1){
+            points.set(i + 1, false);
         }
     }
 
-    public String result(int i, int people){
+    public int sizeLine(){
+        return points.size();
+    }
+
+    public String result(int i){
         checkNext();
-        if (points.get(i).booleanValue() == true && i != people -1)
+        if (points.get(i).booleanValue() == true && i != points.size() -1)
             return "-----";
         return "     ";
     }
@@ -32,4 +36,10 @@ public class Line {
         return "false";
     }
 
+    @Override
+    public String toString() {
+        return "Line{" +
+                "points=" + points +
+                '}';
+    }
 }

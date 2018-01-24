@@ -15,16 +15,16 @@ public class LadderTest {
         LadderInput input = new LadderInput();
     }
 
-    @Test
-    public void addLadder() {
-        Boolean add = ladder.returnAdd(6);
-        assertEquals(true, add);
-    }
-
-    @Test
-    public void notAddLadder() {
-        Boolean notAdd = ladder.returnAdd(4);
-        assertEquals(false, notAdd);
-    }
+//    @Test
+//    public void addLadder() {
+//        Boolean add = ladder.returnAdd(6);
+//        assertEquals(true, add);
+//    }
+//
+//    @Test
+//    public void notAddLadder() {
+//        Boolean notAdd = ladder.returnAdd(4);
+//        assertEquals(false, notAdd);
+//    }
 
 }

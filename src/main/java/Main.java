@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -10,9 +11,12 @@ public class Main {
         List<String> names = LadderInput.peopleInput(peopleInput);
         int ladderHeight = LadderInput.ladderInput(ladderInput);
 
-        ladder.resetPart(names.size(), ladderHeight);
-        ladder.printNames(names);
-        System.out.println();
-        ladder.printHeight(names.size(), ladderHeight);
+        ArrayList<Line> lines = ladder.createLines(names.size(), ladderHeight);
+        ResultView.printLadder(lines);
+
+//        ladder.resetPart(names.size(), ladderHeight);
+//        ladder.printNames(names);
+//        System.out.println();
+//        ladder.printHeight(names.size(), ladderHeight);
     }
 }
