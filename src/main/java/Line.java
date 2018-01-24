@@ -11,16 +11,6 @@ public class Line {
         points.add(bool);
     }
 
-    public void printResult(){
-        for(int i = 0; i < points.size(); i++){
-            logger.info("before value of points {} is {}", i, points.get(i).booleanValue());
-        }
-    }
-
-    public void printSize(){
-        logger.info("size of points is {}", points.size());
-    }
-
     public void checkNext() {
         for (int i = 0; i < points.size() - 1; i++) {
             if (points.get(i).booleanValue() == true) {

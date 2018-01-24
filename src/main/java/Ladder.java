@@ -2,12 +2,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 class Ladder {
     private static final Logger logger = LoggerFactory.getLogger(Ladder.class);
     ArrayList<String> results = new ArrayList<String>();
-    ArrayList<String> result2 = new ArrayList<String>();
+
+    ArrayList<String> emps = new ArrayList<String>();
     ArrayList<Line> lines = new ArrayList<Line>();
     int currentIndex = 0;
 
@@ -24,7 +26,7 @@ class Ladder {
         return result;
     }
 
-    public String method2(int people) {
+    public String finalResult(int people) {
         String emp = "     ";
         for (int i = 0; i < people; i++){
             emp = printBar(emp);
@@ -46,18 +48,23 @@ class Ladder {
         return false;
     }
 
-    public void process(int people, int height){
-        // 초기화부분
+    public void resetPart(int people, int height){
         for (int i = 0; i < height; i++) {
             lines.add(new Line());
             results.add(peoplePrint(people));
-            result2.add(method2(people));
+            emps.add(finalResult(people));
             currentIndex++;
         }
     }
 
-    public void heightPrint(){
-        for (String result:result2) {
+    public static void printNames(List<String> names){
+        for (String name : names) {
+            System.out.print(String.format("%5s", name));
+        }
+    }
+
+    public void printLayer(){
+        for (String result: emps) {
             System.out.println(result);
         }
     }

@@ -18,15 +18,15 @@ public class LadderInput {
         return Integer.parseInt(ladderInput);
     }
 
-    public void people(){
+    public static void people(){
         logger.info("참여할 사람 이름을 입력하세요.");
     }
 
-    public void height(){
+    public static void height(){
         logger.info("최대 사다리 높이는 몇 개인가요?");
     }
 
-    public String scannerInput() {
+    public static String scannerInput() {
         Scanner scanner = new Scanner(System.in);
         String inputValue = scanner.nextLine();
         return inputValue;

@@ -15,7 +15,7 @@ public class LadderTest {
         ladder = new Ladder();
         LadderInput input = new LadderInput();
     }
-    
+
     @Test
     public void addLadder() {
         Boolean add = ladder.returnAdd(6);
