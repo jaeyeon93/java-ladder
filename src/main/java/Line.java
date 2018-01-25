@@ -12,6 +12,7 @@ public class Line {
             setValue(i);
         }
     }
+
     public void setValue(int i){
         if (points.get(i).booleanValue() == true && i != points.size() -1){
             points.set(i + 1, false);
