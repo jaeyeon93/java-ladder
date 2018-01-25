@@ -4,38 +4,42 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class LadderTest {
     private static final Logger logger = LoggerFactory.getLogger(LadderTest.class);
+    ArrayList<Boolean> points = new ArrayList<Boolean>(Arrays.asList(true, true, true, false));
     Ladder ladder;
-    LadderInput input;
-
+    Line line;
     @Before
     public void setUp() {
         ladder = new Ladder();
         LadderInput input = new LadderInput();
-    }
-
-    @Test
-    public void peopleInput() {
-        int people = input.peopleInput("3");
-        assertEquals(3, people);
-    }
-
-    @Test
-    public void ladderInput() {
-        int height = input.peopleInput("5");
-        assertEquals(5, height);
+        Line line = new Line();
     }
 
     @Test
     public void addLadder() {
-        String add = ladder.add(6);
-        assertEquals("-", add);
+        Boolean add = ladder.returnAdd(6);
+        assertEquals(true, add);
     }
 
     @Test
     public void notAddLadder() {
-        String notAdd = ladder.add(4);
-        assertEquals(" ", notAdd);
+        Boolean notAdd = ladder.returnAdd(4);
+        assertEquals(false, notAdd);
+    }
+
+    @Test
+    public void size() {
+        int pointSize = points.size();
+        assertEquals(4, pointSize);
+    }
+
+    @Test
+    public void testSetValue() {
+        String result = line.result(1);
+        assertEquals("-----", result);
     }
 }
