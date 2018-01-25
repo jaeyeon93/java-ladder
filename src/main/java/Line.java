@@ -35,11 +35,4 @@ public class Line {
             return "true";
         return "false";
     }
-
-//    @Override
-//    public String toString() {
-//        return "Line{" +
-//                "points=" + points +
-//                '}';
-//    }
 }
